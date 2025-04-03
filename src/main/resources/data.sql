@@ -5,7 +5,7 @@ INSERT INTO address (street, postalCode, city) VALUES
 ('Skatan 192', '862 96', 'Njurunda'),
 ('11 Solhemsvägen', '861 42', 'Sörberge'),
 ('Södra Allén 20', '852 39', 'Sundsvall');
--- Member  TODO FIXA MEMBER INSERT
+-- Member
 INSERT INTO member (first_name, last_name, email, phone, date_of_birth, address_id) VALUES
 ('Scott', 'Payne', 'payne@gmail.com', '0701715411', '1995-04-12', 1),
 ('Angelica', 'Andersson', 'angelica@gmail.com', '0727485236', '1965-01-07', 1),

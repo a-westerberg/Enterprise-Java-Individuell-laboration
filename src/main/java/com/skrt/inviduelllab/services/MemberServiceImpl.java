@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -27,6 +27,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public ResponseEntity<Member> getMemberById(Long id){
+        return memberRepository.findById(id)
+                .map(member -> new ResponseEntity<>(member, HttpStatus.OK))
+                .orElseThrow(()-> new ResourceNotFoundException("Member", "id", id));
+    }
+
+    /*@Override
     public ResponseEntity<Optional<Member>> getMemberById(Long id) {
         Optional<Member> optionalMember = memberRepository.findById(id);
         if(optionalMember.isPresent()) {
@@ -34,8 +41,9 @@ public class MemberServiceImpl implements MemberService {
         } else {
             throw new ResourceNotFoundException("Member", "id", id);
         }
-    }
+    }*/
     // TODO fixa logik för om igen address finns så den läggs till isf
+
     @Override
     public ResponseEntity<Member> addMember(Member member) {
         Member savedMember = memberRepository.save(member);
