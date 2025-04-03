@@ -8,7 +8,7 @@ INSERT INTO address (street, postalCode, city) VALUES
 -- Member
 INSERT INTO member (first_name, last_name, email, phone, date_of_birth, address_id) VALUES
 ('Scott', 'Payne', 'payne@gmail.com', '0701715411', '1995-04-12', 1),
-('Scott', 'Payne', 'payne@gmail.com', '0727485236', '1965-01-07', 1),
-('Scott', 'Payne', 'payne@gmail.com', '0733694129', '1995-02-06', 1),
-('Scott', 'Payne', 'payne@gmail.com', '0708451240', '1995-03-11', 1),
-('Scott', 'Payne', 'payne@gmail.com', '0736819040', '1995-05-10', 1);
+('Angelica', 'Andersson', 'angelica@gmail.com', '0727485236', '1965-01-07', 1),
+('Freja', 'White', 'freja@gmail.com', '0733694129', '1972-02-06', 3),
+('Erling', 'Haaland', 'erling@gmail.com', '0708451240', '2000-03-11', 4),
+('Kjertil', 'Västsjö', 'kjertil@gmail.com', '0736819040', '1987-05-10', 5);

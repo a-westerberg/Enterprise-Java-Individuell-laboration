@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alla Medlemmar</title>
+</head>
+<body>
+  <h1>Medlemslista</h1>
+  <table border="1">
+    <thead>
+      <tr class="mysection">
+        <th>Id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+<!--        <th>Email</th>
+        <th>Phone</th>
+        <th>DateOfBirth</th>
+        <th>City</th>   -->
+
+      </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${members}">
+      <td th:text="${member.id}"></td>
+      <td th:text="${member.firstName}"></td>
+      <td th:text="${member.lastName}"></td>
+<!--      <td th:text="${member.email}"></td>
+      <td th:text="${member.phone}"></td>
+      <td th:text="${member.dateOfBirth}"></td>
+      <td th:text="${member.address.city}"></td>  -->
+      <td>
+        <form th:action="@{/admin/deletememberbyid}" method="post">
+          <input type="hidden" name="id" th:value="${member.id}" />
+           <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
