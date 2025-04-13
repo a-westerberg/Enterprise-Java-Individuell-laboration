@@ -3,40 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Alla Medlemmar</title>
+   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
   <h1>Medlemslista</h1>
-  <table border="1">
+  <div class="table-wrapper">
+  <table>
     <thead>
-      <tr class="mysection">
+      <tr>
         <th>Id</th>
         <th>Firstname</th>
         <th>Lastname</th>
-<!--        <th>Email</th>
-        <th>Phone</th>
-        <th>DateOfBirth</th>
-        <th>City</th>   -->
-
       </tr>
     </thead>
     <tbody>
-    <tr th:each="member : ${members}">
-      <td th:text="${member.id}"></td>
-      <td th:text="${member.firstName}"></td>
-      <td th:text="${member.lastName}"></td>
-<!--      <td th:text="${member.email}"></td>
-      <td th:text="${member.phone}"></td>
-      <td th:text="${member.dateOfBirth}"></td>
-      <td th:text="${member.address.city}"></td>  -->
-      <td>
-        <form th:action="@{/admin/deletememberbyid}" method="post">
-          <input type="hidden" name="id" th:value="${member.id}" />
-           <button type="submit">Delete</button>
-        </form>
-      </td>
-    </tr>
+      <tr th:each="member : ${members}">
+        <td th:text="${member.id}"></td>
+        <td th:text="${member.firstName}"></td>
+        <td th:text="${member.lastName}"></td>
+      </tr>
     </tbody>
   </table>
 
+  <div class="button-column">
+      <form th:each="member : ${members}" th:action="@{/admin/deletememberbyid}" method="post">
+        <input type="hidden" name="id" th:value="${member.id}" />
+        <button type="submit" class="delete-btn">Delete</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

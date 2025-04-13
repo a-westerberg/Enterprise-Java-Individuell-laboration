@@ -1,5 +1,6 @@
 package com.skrt.inviduelllab.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class Address {
     private String city;
 
     @OneToMany(mappedBy = "address")
+    @JsonIgnore
     private List<Member> members;
 
     public Address() {

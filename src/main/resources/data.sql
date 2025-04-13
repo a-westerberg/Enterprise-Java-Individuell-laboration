@@ -1,5 +1,5 @@
 -- Address
-INSERT INTO address (street, postalCode, city) VALUES
+INSERT INTO address (street, postal_code, city) VALUES
 ('Köpmangatan 14', '861 31', 'Timrå'),
 ('Bultgatan 4', '853 50', 'Sundsvall'),
 ('Skatan 192', '862 96', 'Njurunda'),
