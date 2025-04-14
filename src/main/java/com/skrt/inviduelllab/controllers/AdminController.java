@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
     private final MemberService memberService;
 
     @Autowired
@@ -37,21 +35,17 @@ public class AdminController {
         return memberService.addMember(member);
     }
 
-    // TODO KOD För att skapa en ny address om man lägger in en ny member med en adress som inte finns i repo
-
-
     @PutMapping("/updatemember")
     public ResponseEntity<Member> updateMember(@RequestBody Member updatedMember) {
         return memberService.updateMember(updatedMember);
     }
 
-    // TODO Fixa ett return när man kör denna
     @DeleteMapping("/deletemember/{id}")
-    public ResponseEntity<Void> deleteMember(@PathVariable Long id) {
-        return memberService.deleteMember(id);
+    public ResponseEntity<String> deleteMember(@PathVariable Long id) {
+        memberService.deleteMember(id);
+        return ResponseEntity.ok("Member with ID: {" + id + "} successfully deleted");
     }
 
-        //TODO SE över detta om denna är korrekt enligt pdf/kursen
     @GetMapping("/deletemember")
     public String showDeleteMemberPage(Model model) {
         List<Member> members = memberService.getAllMembers().getBody();
@@ -64,7 +58,5 @@ public class AdminController {
         memberService.deleteMember(id);
         return "redirect:/admin/deletemember";
     }
-
-
 
 }

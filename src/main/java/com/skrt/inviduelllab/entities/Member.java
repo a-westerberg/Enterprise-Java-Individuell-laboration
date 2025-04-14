@@ -19,7 +19,7 @@ public class Member {
     @Column(length = 50, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 15)
+    @Column(length = 15, unique = true)
     private String phone;
 
     @Column(nullable = false)
@@ -29,17 +29,7 @@ public class Member {
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
-
     public Member() {
-    }
-
-    public Member(String firstName, String lastName, String email, String phone, LocalDate dateOfBirth, Address address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
     }
 
     public Long getId() {
