@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.CONFLICT)
 public class UniqueValueException extends RuntimeException {
-    //TODO kolla med micke om det räcker med en httpsstatus som returneras eller om det ska medfölja en sträng/body (väntar svar)
+
     public UniqueValueException(String object, String value) {
-        super(object + "  {" + value + "} already exists and duplicates is not allowed"  );
+        super(object + ": {" + value + "} already exists and duplicates is not allowed"  );
     }
 }
