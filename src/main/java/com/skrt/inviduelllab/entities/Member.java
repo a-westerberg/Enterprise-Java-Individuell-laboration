@@ -19,7 +19,7 @@ public class Member {
     @Column(length = 50, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 15)
+    @Column(length = 15, unique = true)
     private String phone;
 
     @Column(nullable = false)
@@ -28,7 +28,6 @@ public class Member {
     @ManyToOne(optional = false)
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
-
 
     public Member() {
     }
